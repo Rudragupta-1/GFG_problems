@@ -1,0 +1,44 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    //Function to find the median of the two arrays when they get merged.
+    public static int findMedian(int arr[], int n, int brr[], int m)
+    {
+        ArrayList<Integer> list=new ArrayList<>();
+        int i=0,j=0;
+        while(i<n && j<m)
+        {
+            if(arr[i]<brr[j]){
+            list.add(arr[i]);
+            i++;
+            }
+            else if(arr[i]>brr[j]){
+            list.add(brr[j]);
+            j++;
+            }
+            else if(arr[i]==brr[j]){
+                list.add(arr[i]);
+                list.add(brr[j]);
+                i++;
+                j++;
+            }
+        }
+        int res=-1;
+        while(i<n){
+        list.add(arr[i]);i++;}
+        while(j<m){
+        list.add(brr[j]);j++;}
+        int x=n+m;
+        if(x%2!=0)
+        res=list.get(x/2);
+        else {
+            int a=list.get(x/2);
+            int b=list.get((x/2)-1);
+            res=(a+b)/2;
+        }
+        return res;
+    }
+}

@@ -1,0 +1,25 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    static int majorityElement(int arr[], int n)
+    {
+        if(arr.length==1 ) return arr[0];
+        int min_app=(n/2)+1;
+        Arrays.sort(arr);
+        int c=1; int res=-1;
+        for(int i=0;i<n-1;i++)
+        {
+            if(arr[i]!=arr[i+1])
+            {
+                c=1;
+            }
+            else c++;
+            if (c >=min_app)
+            res=arr[i];
+        }
+        return res;
+    }
+}
