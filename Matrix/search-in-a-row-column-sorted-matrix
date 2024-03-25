@@ -1,0 +1,22 @@
+
+
+
+
+class Solution 
+{ 
+    //Function to search a given number in row-column sorted matrix.
+	static boolean search(int matrix[][], int n, int m, int x) 
+	{  
+	     int row=0;
+	     int coloumn=m-1;
+	     while(coloumn>=0 && row<n)
+	     {
+	         if(matrix[row][coloumn]==x)
+	         return true;
+	         else if(matrix[row][coloumn]<x)
+	         row++;
+	         else coloumn--;
+	     }
+	     return false;
+	} 
+} 

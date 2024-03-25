@@ -1,0 +1,23 @@
+
+
+class Solution
+{
+    //Function to interchange the rows of a matrix.
+    static void interchangeRows(int matrix[][])
+    {
+        int n=matrix.length;
+        int m=matrix[0].length;
+        int low=0,high=n-1;
+        while(low<high)
+        {
+            for(int j=0;j<m;j++)
+            {
+                int temp=matrix[low][j];
+                matrix[low][j]=matrix[high][j];
+                matrix[high][j]=temp;
+            }
+            low++;
+            high--;
+        }
+    }
+}
