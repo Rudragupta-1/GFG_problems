@@ -1,0 +1,19 @@
+
+class Solution
+{
+    //Function to find the smallest positive number missing from the array.
+    static int missingNumber(int arr[], int size)
+    {
+        HashSet<Integer> set=new HashSet<>();
+        for(int i:arr)
+        set.add(i);
+        int i=1;
+        while(true)
+        {
+            if(!set.contains(i))
+            break;
+            i++;
+        }
+        return i;
+    }
+}

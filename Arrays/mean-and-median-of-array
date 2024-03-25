@@ -1,0 +1,26 @@
+
+
+class Solution
+{
+ 
+  public int median(int arr[],int N)
+    {
+      
+       Arrays.sort(arr);
+       if(N%2!=0)
+       return arr[N/2];
+       else return ((arr[N/2]+arr[(N/2)-1])/2);
+       
+       
+    }
+
+    public int mean(int arr[],int N)
+    { int sum=0;
+       for(int i=0;i<N;i++)
+       {
+           sum+=arr[i];
+       }
+       return sum/N;
+    }
+
+}

@@ -1,0 +1,30 @@
+// L[] and R[] are input ranges
+// n : size of array
+// maxx: maximum element in R[]
+// arr[]: declared globally with size equal to 1000000
+
+class Solution{
+    //Function to find the maximum occurred integer in all ranges.
+    public static int maxOccured(int left[], int right[], int n, int maxx){
+        
+        int freq[]=new int[maxx+1];
+        for(int i=0;i<n;i++){
+            for(int j=left[i];j<=right[i];j++)
+            {
+                freq[j]++;
+            }
+        }
+        int max=0;
+        int res=0;
+        for(int i=0;i<=maxx;i++)
+        {
+            if(freq[i]>max)
+            {
+                max=freq[i];
+                res=i;
+            }
+        }
+        return res;
+    }
+    
+}

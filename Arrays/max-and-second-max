@@ -1,0 +1,26 @@
+        
+
+
+// Solution class to implement function largestAndSecondLargest
+class Solution{
+    
+  // Function to find largest and second largest element in the array
+  public static ArrayList<Integer> largestAndSecondLargest(int n, int arr[])
+  {
+      int max=-1;
+      int second=-1;
+      for(int i=0;i<n;i++)
+      {
+          if(arr[i]>max){
+          second=max;
+          max=arr[i];}
+          else if(arr[i]>second && arr[i]!=max){
+          second=arr[i];}
+      }
+      ArrayList<Integer> res = new ArrayList<Integer>();
+      res.add(max);
+      res.add(second);
+      return res;
+      
+  }
+}

@@ -1,0 +1,22 @@
+
+
+//User function Template for Java
+
+class Solution {
+    ArrayList<ArrayList<Integer>> stockBuySell(int arr[], int n) {
+        ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+        
+        for(int i=1;i<n;i++)
+        {
+            ArrayList<Integer> l=new ArrayList<>();
+            if(arr[i]>arr[i-1])
+            {
+                l.add(i-1);
+                l.add(i);
+                list.add(l);
+            }
+        }
+        
+        return list;
+    }
+}
