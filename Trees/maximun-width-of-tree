@@ -1,0 +1,41 @@
+// User function Template for Java
+
+/* A Binary Tree node
+class Node
+{
+    int data;
+    Node left, right;
+
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+} */
+
+class Solution {
+    // Function to get the maximum width of a binary tree.
+    int getMaxWidth(Node root) {
+        // Your code here
+        // ArrayList<Integer> list=new ArrayList<>();
+	   // Stack<Integer> st=new Stack<>();
+	    Queue<Node> q=new LinkedList<>();
+	    q.offer(root);
+	    int max=Integer.MIN_VALUE;
+	   // boolean flag=false;
+	    while(!q.isEmpty()){
+	        int size=q.size();
+	        max=Math.max(size,max);
+	        while(size-->0)
+	        {
+	            Node x=q.poll();
+	            if(x.left!=null)
+	            q.offer(x.left);
+	            if(x.right!=null)
+	            q.offer(x.right);
+	        }
+	        
+	    }
+	    return max;
+    }
+}
