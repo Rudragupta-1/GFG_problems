@@ -1,0 +1,51 @@
+//User function Template for Java
+
+/*class Node
+{
+    int data;
+    Node left,right;
+    Node(int d)
+    {
+        data=d;
+        left=right=null;
+    }
+}*/
+
+class GFG
+{
+    //Function to store the zig zag order traversal of tree in a list.
+	ArrayList<Integer> zigZagTraversal(Node root)
+	{
+	    //Add your code here.
+	    ArrayList<Integer> list=new ArrayList<>();
+	    Stack<Integer> st=new Stack<>();
+	    Queue<Node> q=new LinkedList<>();
+	    q.offer(root);
+	    boolean flag=false;
+	    while(!q.isEmpty()){
+	        int size=q.size();
+	        while(size-->0)
+	        {
+	            Node x=q.poll();
+	            if(flag)
+	            {
+	                    st.push(x.data);
+	            }
+	            else{
+	                list.add(x.data);
+	                
+	            }
+	            if(x.left!=null)
+	            q.offer(x.left);
+	            if(x.right!=null)
+	            q.offer(x.right);
+	        }
+	        while(!st.isEmpty()){
+	            list.add(st.peek());
+	            st.pop();
+	        }
+	        flag=!flag;
+	    }
+	    return list;
+	}
+}
