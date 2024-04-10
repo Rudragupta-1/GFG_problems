@@ -1,0 +1,50 @@
+/* Tree node structure
+class Node
+{
+    int data;
+    Node left;
+    Node right;
+
+        Node(int value)
+    {
+        data = value;
+        left = null;
+        right = null;
+    }
+}*/
+
+
+class GfG
+{
+    //Function to return a tree created from postorder and inoreder traversals.
+    
+    Node buildTree(int in[], int post[], int n) {
+        // Your code here
+        Node head=func(in,post,0,n-1,0,n-1);
+        return head;
+    }
+
+    Node func(int in[], int post[],int is,int ie,int ps,int pe){
+        if(ie<is){
+            return null;
+        }
+        
+        Node root=new Node(post[pe]);
+        
+        if(ie==is)
+        return root;
+        
+        int x=-1;
+        for(int i=is;i<=ie;i++){
+            if(in[i]==root.data){
+                x=i;
+                break;
+            }
+        }
+        
+        root.left=func(in,post,is,x-1,ps,ps+x-1-is);
+        root.right=func(in,post,x+1,ie,pe-ie+x,pe-1);
+        
+        return root;
+    }
+}
