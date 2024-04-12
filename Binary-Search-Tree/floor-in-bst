@@ -1,0 +1,24 @@
+// User function Template for Java
+
+class Sol {
+    // Function to return the floor of given number in BST.
+    int floor(Node root, int key) {
+        // code here.
+    int x=-1;
+    while(root!=null){
+    if(root.data==key)
+    {
+        return root.data;
+    }
+    else if(root.data>key)
+    {
+        root=root.left;
+    }
+    else {
+        x=root.data;
+        root=root.right;
+    }
+    }
+    return x;
+    }
+}
