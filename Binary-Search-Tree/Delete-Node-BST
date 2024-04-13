@@ -1,0 +1,56 @@
+// User function Template for Java
+
+class Tree {
+    // Function to delete a node from BST.
+    public static Node deleteNode(Node root, int key) {
+        // code here.
+        if(root==null)
+        return null;
+        if(root.data==key){
+            return helper(root);
+        }
+        Node res=root;
+        while(root!=null)
+        {
+            if(root.data>key)
+            {
+                if(root.left!=null && root.left.data==key)
+                {
+                    root.left=helper(root.left);
+                    break;
+                }
+                else {
+                    root=root.left;
+                }
+            }
+            else if(root.data<key)
+            {
+                if(root.right!=null && root.right.data==key)
+                {
+                    root.right=helper(root.right);
+                    break;
+                }
+                else {
+                    root=root.right;
+                }
+            }
+        }
+        return res;
+    }
+    static Node helper(Node root){
+        if(root.left==null){
+            return root.right;
+        }
+        else if(root.right==null){
+            return root.left;
+        }
+        Node maxNode=root.left;
+        Node curr=maxNode;
+        while(maxNode!=null){
+            curr=maxNode;
+            maxNode=maxNode.right;
+        }
+        curr.right=root.right;
+        return root.left;
+    }
+}
